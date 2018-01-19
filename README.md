@@ -11,5 +11,5 @@ Next updates:
 :heavy_plus_sign: Unit Testing <br>
 :heavy_plus_sign: Refactoring <br>
 :heavy_plus_sign: Better heuristic <br>
-:heavy_plus_sign: I18N
+:heavy_plus_sign: I18N <br>
 :heavy_plus_sign: Exception handling
