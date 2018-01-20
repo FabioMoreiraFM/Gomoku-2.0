@@ -25,6 +25,8 @@ class ControleEncadeamento():
 			if contador_orientacao == 2: # Analisa o encadeamento depois de obter o resultado da Hori. Esq. + Hori. Dir., e.g.
 				contador_orientacao = 0
 				if self._contador_incrementa_encadeamento != 0:
+					if self._contador_incrementa_encadeamento > 4:
+						self._contador_incrementa_encadeamento = 4
 					self._encadeamento[self._jogador][self._contador_incrementa_encadeamento] += 1
 					self._contador_incrementa_encadeamento = 0
 		
