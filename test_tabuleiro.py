@@ -40,7 +40,7 @@ class TestTabuleiroMethods(unittest.TestCase):
     def test_inserir_peca_mesma_posicao(self):
         self.tabuleiro.inserir_peca([0,0], Jogador.ADVERSARIO_2)
 
-        self.assertRaises(Exception, self.tabuleiro.inserir_peca, [0,0], Jogador.ADVERSARIO_1)
+        self.assertEqual(1, self.tabuleiro.inserir_peca([0,0], Jogador.ADVERSARIO_1))
 
         self.tabuleiro.remover_peca(self.tabuleiro.get_tabuleiro()[0][0])
 
