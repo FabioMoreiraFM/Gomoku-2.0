@@ -14,10 +14,11 @@ class Model:
 
 	def cria_tabuleiro(self, tamanho):
 		self._tabuleiro = tabuleiro.Tabuleiro(tamanho)
-		self.set_tabuleiro_ia()
+		self.set_tabuleiro()
 
-	def set_tabuleiro_ia(self):
+	def set_tabuleiro(self):
 		self._ia.set_tabuleiro(self._tabuleiro)
+		self._controle_encadeamento.set_tabuleiro(self._tabuleiro)
 
 	def get_tabuleiro(self):
 		return self._tabuleiro.get_tabuleiro()
@@ -26,14 +27,12 @@ class Model:
 		return self._ia.fim_de_jogo(self._controle_encadeamento.get_encadeamento())
 
 	def inserir_peca(self, coord, novo_dono):
-		try:
-			self._tabuleiro.inserir_peca(coord, novo_dono)
-		except Exception, e:
-			print e
+		if self._tabuleiro.inserir_peca(coord, novo_dono):
+			raise Exception
 		self.atualiza_controle_encadeamento(coord)
 
 	def atualiza_controle_encadeamento(self, coord):
-		self._controle_encadeamento.atualiza(self._tabuleiro.get_tabuleiro(), coord)
+		self._controle_encadeamento.atualiza(coord)
 
 	def encontrar_melhor_jogada(self):
 		self._ia.minimax(3)

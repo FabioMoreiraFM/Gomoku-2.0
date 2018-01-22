@@ -1,4 +1,3 @@
-# encoding: utf-8
 import nodo
 from jogador import *
 
@@ -23,8 +22,9 @@ class Tabuleiro:
 		if (nodo.get_dono() == Jogador.ESPACO_LIVRE):
 			nodo.set_dono(novo_dono)
 			del self._nodos_disponiveis[(coordenada[0],coordenada[1])]
-		else:
-			raise Exception('Você adicionou uma peça inválida')
+			return 0
+		
+		return 1
 
 	def remover_peca(self, nodo):
 		nodo.set_dono(Jogador.ESPACO_LIVRE)
