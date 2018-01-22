@@ -52,11 +52,10 @@ class IA:
 			
 			if mini_max: #No futuro, colocar o que esta dentro do if/else em um metodo, o codigo eh igual
 				self._tabuleiro.inserir_peca(index_coord , Jogador.ADVERSARIO_2) 
-				self._controle_encadeamento.atualiza(self._tabuleiro.get_tabuleiro(), index_coord)
+				self._controle_encadeamento.atualiza(index_coord)
 
 				tmpalpha = self.minimax(profundidade-1, alpha, beta, False)
 				
-				#print index_coord, tmpalpha, alpha, beta, mini_max, profundidade
 				if alpha < tmpalpha:
 					alpha = tmpalpha
 					self._melhor_jogada = index_coord 
@@ -68,11 +67,10 @@ class IA:
 					break
 			else:
 				self._tabuleiro.inserir_peca(index_coord, Jogador.ADVERSARIO_1)
-				self._controle_encadeamento.atualiza(self._tabuleiro.get_tabuleiro(), index_coord)
+				self._controle_encadeamento.atualiza(index_coord)
 
 				tmpbeta = self.minimax(profundidade-1, alpha, beta, True)
 				
-				#print index_coord, tmpbeta, beta, mini_max, profundidade
 				if beta > tmpbeta:
 					beta = tmpbeta
 
