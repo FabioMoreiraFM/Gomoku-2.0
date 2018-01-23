@@ -8,14 +8,11 @@ class Tabuleiro:
 
 	def __init__(self, tamanho):
 		self._tabuleiro = [[nodo.Nodo([x,y], Jogador.ESPACO_LIVRE) for y in range(tamanho+1)] for x in range(tamanho+1)] 
-		self._nodos_disponiveis = {}
 		self._criar_dict_nodos_disponiveis(tamanho)
 
 	def _criar_dict_nodos_disponiveis(self, tamanho):
-		for x in range(tamanho):
-			for y in range(tamanho):
-				self._nodos_disponiveis[(x,y)] = self._tabuleiro[x][y]
-	
+		self._nodos_disponiveis = dict(((x,y), self._tabuleiro[x][y]) for x in range(tamanho) for y in range(tamanho))
+
 	def inserir_peca(self, coordenada, novo_dono):
 		nodo = self._tabuleiro[coordenada[0]][coordenada[1]]
 		
@@ -23,7 +20,6 @@ class Tabuleiro:
 			nodo.set_dono(novo_dono)
 			del self._nodos_disponiveis[(coordenada[0],coordenada[1])]
 			return 0
-		
 		return 1
 
 	def remover_peca(self, nodo):
