@@ -19,6 +19,9 @@ class ControleEncadeamento():
 	def set_encadeamento(self, novo_encadeamento):
 		self._encadeamento = novo_encadeamento
 
+	def fim_de_jogo(self): 
+		return False if (self._encadeamento[Jogador.ADVERSARIO_1][4] >= 1 or self._encadeamento[Jogador.ADVERSARIO_2][4] >= 1) else True
+
 	def atualiza(self, coord_novo_nodo):
 		self._jogador = self._tabuleiro[coord_novo_nodo[0]][coord_novo_nodo[1]].get_dono()
 		encadeamento_unico = 0

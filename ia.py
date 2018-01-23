@@ -14,20 +14,11 @@ class IA:
 	def set_tabuleiro(self, tabuleiro):
 		self._tabuleiro = tabuleiro
 
-	def fim_de_jogo(self, encadeamento): 
-		if encadeamento[Jogador.ADVERSARIO_1][4] >= 1:
-			return False
-		elif encadeamento[Jogador.ADVERSARIO_2][4] >= 1:
-			return False
-		else:
-			return True
-
 	def heuristica(self, jogador):
-
-		if not(self.fim_de_jogo(self._controle_encadeamento.get_encadeamento())) and jogador:
+		if not(self._controle_encadeamento.fim_de_jogo()) and jogador:
 			return -float('inf')
 
-		if not(self.fim_de_jogo(self._controle_encadeamento.get_encadeamento())) and not(jogador):
+		if not(self._controle_encadeamento.fim_de_jogo()) and not(jogador):
 			return float('inf')
 
 		somatorioComputador = 0
@@ -36,8 +27,6 @@ class IA:
 
 		for i in range(0, len(encadeamento_atual[Jogador.ADVERSARIO_1])):
 			somatorioJogador += encadeamento_atual[Jogador.ADVERSARIO_1][i]*(i**4)
-
-		for i in range(0, len(encadeamento_atual[Jogador.ADVERSARIO_2])):
 			somatorioComputador += encadeamento_atual[Jogador.ADVERSARIO_2][i]*(i**4)
 
 		return somatorioComputador - somatorioJogador		
@@ -80,10 +69,7 @@ class IA:
 				if beta <= alpha:
 					break
 		
-		if mini_max:
-			return alpha
-		else:
-			return beta
+		return alpha if mini_max else beta
 
 	def melhor_jogada(self):
 		return self._melhor_jogada

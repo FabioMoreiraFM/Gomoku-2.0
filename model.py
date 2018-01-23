@@ -24,7 +24,7 @@ class Model:
 		return self._tabuleiro.get_tabuleiro()
 
 	def fim_de_jogo(self):
-		return self._ia.fim_de_jogo(self._controle_encadeamento.get_encadeamento())
+		return self._controle_encadeamento.fim_de_jogo()
 
 	def inserir_peca(self, coord, novo_dono):
 		if self._tabuleiro.inserir_peca(coord, novo_dono):
