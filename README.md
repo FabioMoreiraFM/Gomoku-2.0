@@ -11,4 +11,3 @@ This version contains:
 Next updates:
 
 :heavy_plus_sign: Improve heuristic <br>
-:heavy_plus_sign: I18N <br>
