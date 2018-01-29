@@ -7,6 +7,7 @@ class Model:
 	_tabuleiro = None
 	_ia = None
 	_controle_encadeamento = None
+	_dificuldade = None
 
 	def __init__(self):
 		self._controle_encadeamento = controleEncadeamento.ControleEncadeamento() 
@@ -35,8 +36,12 @@ class Model:
 		self._controle_encadeamento.atualiza(coord)
 
 	def encontrar_melhor_jogada(self):
-		self._ia.minimax(3)
+		self._ia.minimax(self._dificuldade)
 		return self._ia.melhor_jogada()
 
 	def get_encadeamento(self):
 		return self._controle_encadeamento.get_encadeamento()
+
+	def set_dificuldade(self, dificuldade):
+		self._dificuldade = dificuldade
+
