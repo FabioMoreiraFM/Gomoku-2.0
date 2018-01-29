@@ -7,6 +7,7 @@ This version contains:
 :heavy_check_mark: Minimax algorithm with alpha-beta pruning <br>
 :heavy_check_mark: Unit Testing <br>
 :heavy_check_mark: Exception handling
+:heavy_check_mark: GUI
 
 Next updates:
 
