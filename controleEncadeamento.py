@@ -19,8 +19,8 @@ class ControleEncadeamento():
 	def set_encadeamento(self, novo_encadeamento):
 		self._encadeamento = novo_encadeamento
 
-	def fim_de_jogo(self): 
-		return False if (self._encadeamento[Jogador.ADVERSARIO_1][4] >= 1 or self._encadeamento[Jogador.ADVERSARIO_2][4] >= 1) else True
+	def fim_de_jogo(self):
+		return True if (self._encadeamento[Jogador.ADVERSARIO_1][4] >= 1 or self._encadeamento[Jogador.ADVERSARIO_2][4] >= 1) else False
 
 	def atualiza(self, coord_novo_nodo):
 		self._jogador = self._tabuleiro[coord_novo_nodo[0]][coord_novo_nodo[1]].get_dono()
@@ -31,7 +31,7 @@ class ControleEncadeamento():
 			self.verifica_encadeamento(coord_novo_nodo, orientacao)
 			contador_orientacao += 1
 			encadeamento_unico += self._contador_incrementa_encadeamento
-			
+
 			if contador_orientacao == 2: # Analisa o encadeamento depois de obter o resultado da Hori. Esq. + Hori. Dir., e.g.
 				contador_orientacao = 0
 				if self._contador_incrementa_encadeamento != 0:
@@ -39,9 +39,9 @@ class ControleEncadeamento():
 						self._contador_incrementa_encadeamento = 4
 					self._encadeamento[self._jogador][self._contador_incrementa_encadeamento] += 1
 					self._contador_incrementa_encadeamento = 0
-		
+
 		if encadeamento_unico == 0:
-			self._encadeamento[self._jogador][0] +=1 
+			self._encadeamento[self._jogador][0] += 1 
 
 	def verifica_encadeamento(self, coord, orientacao):
 		explora_vizinhaca_1 = coord[0] # x
