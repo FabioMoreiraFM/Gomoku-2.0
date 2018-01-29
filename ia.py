@@ -15,10 +15,10 @@ class IA:
 		self._tabuleiro = tabuleiro
 
 	def heuristica(self, jogador):
-		if not(self._controle_encadeamento.fim_de_jogo()) and jogador:
+		if self._controle_encadeamento.fim_de_jogo() and jogador:
 			return -float('inf')
 
-		if not(self._controle_encadeamento.fim_de_jogo()) and not(jogador):
+		if self._controle_encadeamento.fim_de_jogo() and not(jogador):
 			return float('inf')
 
 		somatorioComputador = 0
@@ -32,9 +32,9 @@ class IA:
 		return somatorioComputador - somatorioJogador		
 
 	def minimax(self, profundidade, alpha=-float('inf'), beta=float('inf'), mini_max=True):
-		if profundidade == 0:
+		if profundidade == 0 or len(self._tabuleiro.get_nodos_disponiveis().keys()) == 0:
 			return self.heuristica(mini_max)
-
+		
 		for tupla_coord in self._tabuleiro.get_nodos_disponiveis():
 			index_coord = [tupla_coord[0], tupla_coord[1]]
 			copia_encadeamento = copy.deepcopy(self._controle_encadeamento.get_encadeamento())
