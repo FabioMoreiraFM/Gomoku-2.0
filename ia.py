@@ -1,6 +1,6 @@
-from jogador import *
+from Model.jogador import *
 import math
-import controleEncadeamento
+import Model.controleEncadeamento
 import copy
 
 class IA:

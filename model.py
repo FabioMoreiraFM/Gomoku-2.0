@@ -1,7 +1,7 @@
-import nodo
-import tabuleiro
-import ia
-import controleEncadeamento
+import Model.nodo as nodo
+import Model.tabuleiro as tabuleiro
+import Model.ia as ia
+import Model.controleEncadeamento as controleEncadeamento
 
 class Model:
 	_tabuleiro = None
@@ -45,3 +45,5 @@ class Model:
 	def set_dificuldade(self, dificuldade):
 		self._dificuldade = dificuldade
 
+	def empate(self):
+		return True if len(self._tabuleiro.get_nodos_disponiveis().keys()) == 0 else False

@@ -1,5 +1,5 @@
-from jogador import *
-from orientacao import *
+from Model.jogador import *
+from Model.orientacao import *
 
 class ControleEncadeamento():
 	_encadeamento = None

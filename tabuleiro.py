@@ -1,5 +1,5 @@
-import nodo
-from jogador import *
+import Model.nodo as nodo
+from Model.jogador import *
 
 class Tabuleiro:
 
