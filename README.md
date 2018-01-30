@@ -11,4 +11,16 @@ This version contains:
 
 Next updates:
 
-:heavy_plus_sign: Improve heuristic <br>
+:heavy_plus_sign: Improve heuristic
+
+<br> <br>
+
+# How to run Gomoku-2.0
+
+In terminal:
+
+&emsp; &emsp; python3.x main.py
+
+To run test suite (Make sure you are in the root directory):
+
+&emsp; &emsp; python3.x -m Tests.suite_test
