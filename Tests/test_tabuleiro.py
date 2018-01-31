@@ -1,9 +1,11 @@
 import unittest
-import tabuleiro
-from jogador import *
+import Model.tabuleiro as tabuleiro
+from Model.jogador import *
 
 class TestTabuleiroMethods(unittest.TestCase):
-
+    def runTest(self):
+        assert(True == True)
+        
     @classmethod
     def setUpClass(self):
         self.tabuleiro = tabuleiro.Tabuleiro(10)
@@ -44,6 +46,3 @@ class TestTabuleiroMethods(unittest.TestCase):
 
         self.tabuleiro.remover_peca(self.tabuleiro.get_tabuleiro()[0][0])
 
-
-if __name__ == '__main__':
-    unittest.main()

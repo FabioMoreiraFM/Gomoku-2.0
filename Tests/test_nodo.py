@@ -1,9 +1,11 @@
 import unittest
-import nodo
-from jogador import *
+import Model.nodo as nodo
+from Model.jogador import *
 
 class TestNodoMethods(unittest.TestCase):
-
+    def runTest(self):
+        assert(True == True)
+        
     @classmethod
     def setUpClass(self):
         self.nodo = nodo.Nodo([2,3], Jogador.ADVERSARIO_1)
@@ -20,6 +22,3 @@ class TestNodoMethods(unittest.TestCase):
         self.assertEqual(Jogador.ADVERSARIO_2, self.nodo.get_dono())
 
         self.nodo.set_dono(Jogador.ADVERSARIO_1)
-
-if __name__ == '__main__':
-    unittest.main()

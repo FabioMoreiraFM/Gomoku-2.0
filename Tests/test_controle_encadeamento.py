@@ -1,10 +1,12 @@
 import unittest
-import tabuleiro
-import controleEncadeamento
-from jogador import *
+import Model.tabuleiro as tabuleiro
+from Model import controleEncadeamento
+from Model.jogador import *
 
 class TestControleEncadeamentoMethods(unittest.TestCase):
-
+    def runTest(self):
+        assert(True == True)
+        
     @classmethod
     def setUpClass(self):
         self.tabuleiro = tabuleiro.Tabuleiro(10)
@@ -71,6 +73,3 @@ class TestControleEncadeamentoMethods(unittest.TestCase):
         self.tabuleiro.remover_peca(self.tabuleiro.get_tabuleiro()[3][4])
         self.tabuleiro.remover_peca(self.tabuleiro.get_tabuleiro()[3][5])
         self.encadeamento[Jogador.ADVERSARIO_1][4] = 0
-
-if __name__ == '__main__':
-    unittest.main()
